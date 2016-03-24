@@ -9,12 +9,14 @@
 	
 		
 		function example(iter) {
+		
 			var canvas = document.getElementById("canvas");
 			var canvasHeight = parseInt(canvas.getAttribute("height"));
 			var canvasWidth = parseInt(canvas.getAttribute("width"));
 			var context = canvas.getContext('2d');
 			context.lineWidth = "1";
 			context.strokeStyle = "#9cf";
+			context.clearRect(0, 0, canvasWidth, canvasHeight);
 			
 			var a = 400; // Длина стороны треугольника (px)
 			var p1x = 200; // Координата x нижней левой точки основания треугольника (px)
@@ -41,6 +43,8 @@
 			context.lineTo(p3.x, p3.y);
 			context.lineTo(p1.x, p1.y);
 			context.stroke();
+			
+			
 		
 		function Fractal(p1, p2, p3, iter)
         {
@@ -77,6 +81,7 @@
 		Fractal(p2, p3, p1, iter);
 		Fractal(p3, p1, p2, iter);
 		}
+		
 	</script>
 </head>
 
@@ -84,7 +89,7 @@
 <form name="test" method="post" action="input1.php">
    <form action="handler.php">
    <p>Введите число от 1 до 10:</p>
-   <p><input type="number" size="3" id="num" name = "iter" min="1" max="10"></p>
+   <p><input type="number" size="3" id="num" name = "iter" min="0" max="10"></p>
  
   <input type="button" onclick="example(iter.valueAsNumber)" value="Рисовать"/>
    </form>
