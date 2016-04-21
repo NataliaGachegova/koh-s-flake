@@ -5,6 +5,7 @@
 	<meta http-equiv="Cache-Control" content="no-cache"/>
 	<script type="text/javascript">
 	
+	example(iter){
 	var canvas = document.getElementById("canvas");
 	var canvasHeight = parseInt(canvas.getAttribute("height"));
 	var canvasWidth = parseInt(canvas.getAttribute("width"));
@@ -66,11 +67,9 @@
        		}
             	return iter;
         }
-	
-	function run(iter){
-		Fractal(p1, p2, p3, iter);
-		Fractal(p2, p3, p1, iter);
-		Fractal(p3, p1, p2, iter);
+	Fractal(p1, p2, p3, iter);
+	Fractal(p2, p3, p1, iter);
+	Fractal(p3, p1, p2, iter);	
 	}
 	</script>
 </head>
@@ -80,7 +79,7 @@
    <form action="handler.php">
    <p>Введите число от 1 до 10:</p>
    <p><input type="number" size="3" id="num" name = "iter" min="0" max="10"></p>
-  <input type="button" onclick="run(iter.valueAsNumber)" value="Рисовать"/>
+  <input type="button" onclick="example(iter.valueAsNumber)" value="Рисовать"/>
    </form>
   <canvas height='800' width='800' id='canvas'></canvas>
 </body>
